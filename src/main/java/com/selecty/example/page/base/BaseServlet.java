@@ -14,13 +14,9 @@ import com.selecty.example.entity.Employee;
 
 public abstract class BaseServlet extends HttpServlet {
     //-------------------------------------- プロパティ群
-    /** HttpServletRequest */
     protected HttpServletRequest request;
-    /** HttpServletResponse */
     protected HttpServletResponse response;
-    /** HttpSession */
     protected HttpSession session;
-    /** ErrorMessage */
     protected String message;
 
     @Override
@@ -33,12 +29,13 @@ public abstract class BaseServlet extends HttpServlet {
         this.response = arg1;
         this.session = arg0.getSession();
 
-        // エラーメッセージを初期化
         this.message = null;
+
+        // 入力値を保持する
+        this.keepInputValues();
 
         String nextPage = this.getPageName();
         try {
-            // ログインチェック
             if (!"login".equals(this.getPageName())) {
                 if (session != null) {
                     Employee employee = (Employee) session.getAttribute("LOGIN_EMP");
@@ -55,7 +52,6 @@ public abstract class BaseServlet extends HttpServlet {
                 }
             }
 
-            // 画面ごとの処理
             nextPage = this.doAction();
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +63,6 @@ public abstract class BaseServlet extends HttpServlet {
             return;
         }
 
-        arg0.setAttribute("message", this.message);
         arg0.getRequestDispatcher(nextPage + ".jsp").forward(arg0, arg1);
     }
 
@@ -78,6 +73,14 @@ public abstract class BaseServlet extends HttpServlet {
             values[i] = this.request.getParameter(names[i]);
         }
         return values;
+    }
+
+    // 入力値を保持する
+    private void keepInputValues() {
+        for (String parameterName : this.request.getParameterMap().keySet()) {
+            String parameterValue = this.request.getParameter(parameterName);
+            this.request.setAttribute(parameterName, parameterValue);
+        }
     }
 
     //-------------------------------------- 抽象メソッド群
