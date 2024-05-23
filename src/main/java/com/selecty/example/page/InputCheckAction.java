@@ -27,9 +27,10 @@ public class InputCheckAction  extends BaseServlet {
 				,"pass"		// 3
 				,"depId"	// 4
 			);
-
+		
+		
 		SearchService service = new SearchService();
-		if (service.checkDuplicationMail(null, pageParam[2])) {
+		if (service.checkDuplicationMail(null,pageParam[2])) {
 			throw new Exception("入力されたメールアドレスは既に存在しています");
 		}
 

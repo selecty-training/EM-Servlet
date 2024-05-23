@@ -31,7 +31,7 @@ public class SelectAction extends BaseServlet {
 		/*
 		 * IDが数値でない場合は検索しなくても0件
 		 */
-		if (pageParam[0].trim().length() > 0) {
+		if (pageParam[0].trim().isEmpty()) {
 			try {
 				Integer.parseInt(pageParam[0]);
 			} catch (NumberFormatException e) {

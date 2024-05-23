@@ -39,6 +39,7 @@ public class TargetSearchAction extends BaseServlet {
 			throw new Exception("入力された社員IDで社員情報が見つかりませんでした");
 		}
 
+
 		super.request.setAttribute("empId", employee.getIdEmployee());
 		super.request.setAttribute("empNm", employee.getNmEmployee());
 		super.request.setAttribute("empKn", employee.getKnEmployee());

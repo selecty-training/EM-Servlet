@@ -16,7 +16,7 @@
                 <th class="header">社員ID</th>
                 <td style="width: 250px;">
                     <input type="text" placeholder="社員ID" name="empId" required="required"
-                        style="width: 100%;" value="${empId }"/>
+                        style="width: 100%;" value="${param.empId }"/>
                 </td>
             </tr>
             <tr>

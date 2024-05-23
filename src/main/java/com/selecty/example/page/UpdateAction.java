@@ -45,7 +45,6 @@ public class UpdateAction extends BaseServlet {
 
 		SearchService sService = new SearchService();
 		if (sService.checkDuplicationMail(Integer.parseInt(pageParam[0]), pageParam[3])) {
-			System.out.println("入力されたメールアドレスは既に存在しています");
 			throw new Exception("入力されたメールアドレスは既に存在しています");
 		}
 

@@ -44,13 +44,14 @@ public abstract class BaseServlet extends HttpServlet {
 					if (
 							(employee == null || "".equals(employee.getNmEmployee()))
 							||
-							(departmentList == null || departmentList.size() == 0)
+							(departmentList == null || departmentList.isEmpty())
 						){
 						nextPage = "login.jsp";
 						throw new Exception("不正なログイン、またはログイン有効期間が過ぎています");
+						}
 					}
 				}
-			}
+			
 
 			// 画面ごとの処理
 			nextPage = this.doAction();
@@ -59,8 +60,8 @@ public abstract class BaseServlet extends HttpServlet {
 			message = e.getMessage();
 		}
 
-		arg0.setAttribute("message", this.message);
-		arg0.getRequestDispatcher(nextPage + ".jsp").forward(arg0, arg1);
+		arg0.setAttribute("errMsg", this.message);
+		arg0.getRequestDispatcher(nextPage+".jsp").forward(arg0,arg1);
 	}
 
 	//-------------------------------------- Utilメソッド群
