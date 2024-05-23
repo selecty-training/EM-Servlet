@@ -59,7 +59,7 @@ public abstract class BaseServlet extends HttpServlet {
 			message = e.getMessage();
 		}
 
-		arg0.setAttribute("message", this.message);
+		arg0.setAttribute("errMsg", this.message);
 		arg0.getRequestDispatcher(nextPage + ".jsp").forward(arg0, arg1);
 	}
 
