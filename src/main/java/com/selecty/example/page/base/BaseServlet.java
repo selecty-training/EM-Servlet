@@ -32,7 +32,8 @@ public abstract class BaseServlet extends HttpServlet {
 		this.request = arg0;
 		this.response = arg1;
 		this.session = arg0.getSession();
-
+		
+		
 		String nextPage = this.getPageName();
 		try {
 			// ログインチェック
@@ -51,7 +52,9 @@ public abstract class BaseServlet extends HttpServlet {
 					}
 				}
 			}
-
+			
+			message = null;
+			
 			// 画面ごとの処理
 			nextPage = this.doAction();
 		} catch (Exception e) {
@@ -69,6 +72,7 @@ public abstract class BaseServlet extends HttpServlet {
 		for (int i = 0; i < names.length; i++) {
 			values[i] = this.request.getParameter(names[i]);
 		}
+		
 		return values;
 	}
 
