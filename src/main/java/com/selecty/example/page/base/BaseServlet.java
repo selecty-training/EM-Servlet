@@ -33,6 +33,9 @@ public abstract class BaseServlet extends HttpServlet {
         this.response = arg1;
         this.session = arg0.getSession();
 
+        // エラーメッセージを初期化
+        this.message = null;
+
         String nextPage = this.getPageName();
         try {
             // ログインチェック
@@ -43,9 +46,9 @@ public abstract class BaseServlet extends HttpServlet {
                     List<Department> departmentList = (List<Department>) session.getAttribute("DEP_LIST");
                     if (
                             (employee == null || "".equals(employee.getNmEmployee()))
-                            ||
-                            (departmentList == null || departmentList.size() == 0)
-                    ) {
+                                    ||
+                                    (departmentList == null || departmentList.size() == 0)
+                    ){
                         nextPage = "login.jsp";
                         throw new Exception("不正なログイン、またはログイン有効期間が過ぎています");
                     }
@@ -56,18 +59,15 @@ public abstract class BaseServlet extends HttpServlet {
             nextPage = this.doAction();
         } catch (Exception e) {
             e.printStackTrace();
-            message = e.getMessage(); // 例外のメッセージを取得してmessageプロパティに設定
+            message = e.getMessage();
+            // エラーメッセージをリクエスト属性に設定
+            request.setAttribute("message", message);
+            // エラーページにフォワード
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+            return;
         }
 
-        // エラーメッセージが設定されている場合はログに出力
-        if (message != null && !message.isEmpty()) {
-            System.out.println("エラーメッセージ: " + message);
-        }
-
-        // メッセージをリクエスト属性に設定
         arg0.setAttribute("message", this.message);
-
-        // 次のページにフォワード
         arg0.getRequestDispatcher(nextPage + ".jsp").forward(arg0, arg1);
     }
 
