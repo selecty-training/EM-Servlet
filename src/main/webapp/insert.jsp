@@ -21,25 +21,25 @@
 			<tr>
 				<th class="header">社員名</th>
 				<td>
-					<input type="text" name="empNm" placeholder="社員名" required="required" value="${ empNm }" />
+					<input type="text" name="empNm" placeholder="社員名" required="required" value="${ empNm }" maxlength="50"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="header">社員名フリガナ</th>
 				<td>
-					<input type="text" name="empKn" placeholder="フリガナ" required="required" value="${ empKn }" />
+					<input type="text" name="empKn" placeholder="フリガナ" required="required" value="${ empKn }" maxlength="50"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="header">メールアドレス</th>
 				<td>
-					<input type="text" name="mail" placeholder="メールアドレス" required="required" value="${ mail }" />
+					<input type="text" name="mail" placeholder="メールアドレス" required="required" value="${ mail }" maxlength="100"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="header">パスワード</th>
 				<td>
-					<input type="password" name="pass" placeholder="パスワード ※3文字以上" required="required" value="${ pass }" />
+					<input type="password" name="pass" placeholder="パスワード ※3文字以上" required="required" value="${ pass }" minlength="3" maxlength="10"/>
 				</td>
 			</tr>
 			<tr>
