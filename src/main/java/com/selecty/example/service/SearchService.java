@@ -99,13 +99,13 @@ public class SearchService extends BaseService {
 
 			if (emp != null) {
 				if (id == emp.getIdEmployee()) {
-					return true;
+					return false;
 				}
 			}
 		} finally {
 			DbUtil.closeConnection(this.con);
 		}
-		return false;
+		return true;
 	}
 
 }
