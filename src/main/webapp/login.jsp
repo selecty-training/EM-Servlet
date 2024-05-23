@@ -16,14 +16,14 @@
                 <th class="header">メールアドレス</th>
                 <td style="width: 250px;">
                     <input type="text" placeholder="メールアドレス" name="mail" required="required"
-                        style="width: 100%;" value="${mail }"/>
+                        style="width: 100%;" maxlength="50" value="${mail }"/>
                 </td>
             </tr>
             <tr>
                 <th style="text-align: right;">パスワード</th>
                 <td>
                     <input type="password" placeholder="パスワード" name="pass" required="required"
-                        style="width: 100%;" value="${pass }" />
+                        style="width: 100%;" maxlength="10" value="${pass }" />
                 </td>
             </tr>
             <tr>

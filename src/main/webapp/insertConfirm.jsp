@@ -40,7 +40,7 @@
 				<th class="header">パスワード確認</th>
 				<td>
 					<input type="hidden" name="pass" value="${ pass }" />
-					<input type="password" name="passConfirm" placeholder="再入力してください" />
+					<input type="password" name="passConfirm" maxlength="10" placeholder="再入力してください" />
 				</td>
 			</tr>
 			<tr>

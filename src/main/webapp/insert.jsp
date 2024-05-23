@@ -1,4 +1,9 @@
-<title>社員登録</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>社員登録</title>
 </head>
 
 <body>
@@ -10,55 +15,59 @@
                     <c:out value="${errList}" />
                 </c:forEach>
             </div>
-        </c:if>
-		<table>
-			<tr>
-				<th class="header">社員ID</th>
-				<td>
-					<input type="text" name="empId" readonly="readonly" class="readOnly" value="自動で設定されます" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">社員名</th>
-				<td>
-					<input type="text" name="empNm" placeholder="社員名" required="required" value="${ empNm }" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">社員名フリガナ</th>
-				<td>
-					<input type="text" name="empKn" placeholder="フリガナ" required="required" value="${ empKn }" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">メールアドレス</th>
-				<td>
-					<input type="text" name="mail" placeholder="メールアドレス" required="required" value="${ mail }" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">パスワード</th>
-				<td>
-					<input type="password" name="pass" placeholder="パスワード ※3文字以上" required="required" value="${ pass }" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">所属部署</th>
-				<td>
-					<select name="depId">
-						<c:forEach items="${ sessionScope.DEP_LIST }" var="depList">
-							<option value="${depList.idDepartment}" ${depList.idDepartment == depId ? 'selected="selected"' : ''}><c:out value="${ depList.nmDepartment }" /></option>
-						</c:forEach>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" class="btnArea">
-					<input type="submit" value="登録確認" />
-				</td>
-			</tr>
-		</table>
-	</form>
-	<a href="menu.jsp" >メニューに戻る</a>
+    </c:if>
+    <table>
+        <tr>
+            <th class="header">社員ID</th>
+            <td>
+                <input type="text" name="empId" readonly="readonly" class="readOnly" value="自動で設定されます" />
+            </td>
+        </tr>
+        <tr>
+            <th class="header">社員名</th>
+            <td>
+                <!-- maxlength属性を追加 -->
+                <input type="text" name="empNm" placeholder="社員名" required="required" maxlength="50" value="${empNm}" />
+            </td>
+        </tr>
+        <tr>
+            <th class="header">社員名フリガナ</th>
+            <td>
+                <!-- maxlength属性を追加 -->
+                <input type="text" name="empKn" placeholder="フリガナ" required="required" maxlength="50" value="${empKn}" />
+            </td>
+        </tr>
+        <tr>
+            <th class="header">メールアドレス</th>
+            <td>
+                <!-- maxlength属性を追加 -->
+                <input type="text" name="mail" placeholder="メールアドレス" required="required" maxlength="100" value="${mail}" />
+            </td>
+        </tr>
+        <tr>
+            <th class="header">パスワード</th>
+            <td>
+                <!-- maxlength属性を追加 -->
+                <input type="password" name="pass" placeholder="パスワード ※3文字以上" required="required" maxlength="10" value="${pass}" />
+            </td>
+        </tr>
+        <tr>
+            <th class="header">所属部署</th>
+            <td>
+                <select name="depId">
+                    <c:forEach items="${sessionScope.DEP_LIST}" var="depList">
+                        <option value="${depList.idDepartment}" ${depList.idDepartment == depId ? 'selected="selected"' : ''}><c:out value="${depList.nmDepartment}" /></option>
+                    </c:forEach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="btnArea">
+                <input type="submit" value="登録確認" />
+            </td>
+        </tr>
+    </table>
+</form>
+<a href="menu.jsp">メニューに戻る</a>
 </body>
 </html>
