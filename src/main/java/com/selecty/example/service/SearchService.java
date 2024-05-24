@@ -58,8 +58,7 @@ public class SearchService extends BaseService {
 		List<EmployeeInfo> empInfoList = null;
 		try {
 			empInfoList = dao.findByParam(emp);
-			if (empInfoList.size() == 0||empInfoList == null) {
-				
+			if (empInfoList.size() == 0 || empInfoList == null) {
 			}
 		} finally {
 			DbUtil.closeConnection(this.con);
@@ -98,7 +97,7 @@ public class SearchService extends BaseService {
 			Employee emp = dao.findByMail(mail);
 
 			if (emp != null) {
-				if (id == emp.getIdEmployee()) {
+				if (id == null || !id.equals(emp.getIdEmployee())) {
 					return true;
 				}
 			}
