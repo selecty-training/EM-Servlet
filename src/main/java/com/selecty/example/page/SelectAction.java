@@ -54,7 +54,7 @@ public class SelectAction extends BaseServlet {
 		List<EmployeeInfo> empInfoList = service.searchEmployeeInfo(employee);
 
 		// 検索結果の判定
-		if (empInfoList.size() == 0) {
+		if (empInfoList == null) {
 			throw new Exception("入力された条件で情報が見つかりませんでした");
 		}
 
