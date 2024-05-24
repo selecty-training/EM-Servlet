@@ -31,9 +31,10 @@ public class SelectAction extends BaseServlet {
 		/*
 		 * IDが数値でない場合は検索しなくても0件
 		 */
+		Integer id = null;
 		if (pageParam[0].trim().length() > 0) {
 			try {
-				Integer.parseInt(pageParam[0]);
+				id =Integer.parseInt(pageParam[0]);
 			} catch (NumberFormatException e) {
 				throw new Exception("入力された条件で情報が見つかりませんでした");
 			}
@@ -41,7 +42,7 @@ public class SelectAction extends BaseServlet {
 
 		// 画面入力値 -> DTOへ
 		Employee employee = new Employee();
-		employee.setIdEmployee(Integer.parseInt(pageParam[0]));
+		employee.setIdEmployee(id);
 		employee.setNmEmployee(pageParam[1]);
 		employee.setKnEmployee(pageParam[2]);
 		employee.setMailAddress(pageParam[3]);
