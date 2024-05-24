@@ -21,19 +21,19 @@
 			<tr>
 				<th class="header">社員名</th>
 				<td>
-					<input type="text" name="empNm" placeholder="社員名" value="${empNm }" />
+					<input type="text" name="empNm" maxlength = "50" placeholder="社員名" value="${empNm }" />
 				</td>
 			</tr>
 			<tr>
 				<th class="header">社員名フリガナ</th>
 				<td>
-					<input type="text" name="empKn" placeholder="フリガナ" value="${empKn }" />
+					<input type="text" name="empKn" maxlength = "50" placeholder="フリガナ" value="${empKn }" />
 				</td>
 			</tr>
 			<tr>
 				<th class="header">メールアドレス</th>
 				<td>
-					<input type="text" name="mail" placeholder="メールアドレス" value="${mail }" />
+					<input type="text" name="mail" maxlength = "100" placeholder="メールアドレス" value="${mail }" />
 				</td>
 			</tr>
 			<tr>
