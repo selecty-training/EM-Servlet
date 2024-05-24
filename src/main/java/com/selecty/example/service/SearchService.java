@@ -98,7 +98,7 @@ public class SearchService extends BaseService {
 			Employee emp = dao.findByMail(mail);
 
 			if (emp != null) {
-				if (emp.getIdEmployee().equals(id)) {
+				if (!emp.getIdEmployee().equals(id)) {
 					return true;
 				}
 			}
