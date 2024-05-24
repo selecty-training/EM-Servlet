@@ -28,7 +28,8 @@ public abstract class BaseServlet extends HttpServlet {
 		arg0.setCharacterEncoding("UTF-8");
 		arg1.setContentType("text/html; charset=UTF-8");
 		arg1.setCharacterEncoding("UTF-8");
-
+		
+		this.message = null;
 		this.request = arg0;
 		this.response = arg1;
 		this.session = arg0.getSession();
@@ -46,7 +47,7 @@ public abstract class BaseServlet extends HttpServlet {
 							||
 							(departmentList == null || departmentList.size() == 0)
 						){
-						nextPage = "login.jsp";
+						nextPage = "login";
 						throw new Exception("不正なログイン、またはログイン有効期間が過ぎています");
 					}
 				}
