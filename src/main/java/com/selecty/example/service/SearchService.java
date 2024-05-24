@@ -58,8 +58,8 @@ public class SearchService extends BaseService {
 		List<EmployeeInfo> empInfoList = null;
 		try {
 			empInfoList = dao.findByParam(emp);
-			if (empInfoList.size() == 0) {
-				empInfoList = null;
+			if (empInfoList.size() == 0||empInfoList == null) {
+				
 			}
 		} finally {
 			DbUtil.closeConnection(this.con);
