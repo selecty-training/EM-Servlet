@@ -46,7 +46,7 @@ public abstract class BaseServlet extends HttpServlet {
                                     ||
                                     (departmentList == null || departmentList.size() == 0)
                     ){
-                        nextPage = "login.jsp";
+                        nextPage = "login";
                         throw new Exception("不正なログイン、またはログイン有効期間が過ぎています");
                     }
                 }
