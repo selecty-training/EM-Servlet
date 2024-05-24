@@ -32,6 +32,7 @@ public abstract class BaseServlet extends HttpServlet {
 		this.request = arg0;
 		this.response = arg1;
 		this.session = arg0.getSession();
+		this.message = null;
 
 		String nextPage = this.getPageName();
 		try {
