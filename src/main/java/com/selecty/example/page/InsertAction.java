@@ -45,6 +45,6 @@ public class InsertAction extends BaseServlet {
 		UpdateService service = new UpdateService();
 		service.registEmployee(emp, UPDATE_MODE.INSERT);
 
-		return "insertResult.jsp";
+		return "insertResult";
 	}
 }
